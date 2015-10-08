@@ -10,25 +10,28 @@
 </div>
 <script type="text/javascript">
    //ステージの追加（キャンバスの宣言）
-   add_stage("game","stage1",600,600);
-   //キャンバスの追加
-   parnt = add_canvas("stage1");
+   parnt = add_stage("game","stage1",600,600);
    //画像
-   var pic = "画像のアドレスもしくはファイル名を指定";
+   var pic = "表示したい画像または画像のアドレス";
    //画像を宣言して動かす
-   pic_move_left(parnt,pic,100,100,100,50,2,0,0,100);
-   pic_move_r(parnt,pic,100,100,100,50);
-   pic_move_t(parnt,pic,100,100,100,50);
-   pic_move_d(parnt,pic,100,100,100,50);
+   //pic_move_left(親キャンバス,画像,X座標,Y座標,幅,高さ,移動速度,回転角,回転速度,インターバル,消去フラグ);
+   pic_move_left(parnt,pic,100,100,100,50,2,0,0,100,false);
+   //pic_move_r(親キャンバス,画像,X座標,Y座標,移動速度,消去フラグ);
+   pic_m_r(parnt,pic,100,100,false);
+   pic_m_t(parnt,pic,100,100,false);
+   pic_m_d(parnt,pic,100,100,false);
 
    //テキストを宣言して動かす
-   //text_move_l(parnt,"(・・；)",100,100);
-   //text_move_left(parnt,"(－＿－）",10,5,400,10,0,0,100);
-   //text_move_left(parnt,"(－＿－）",25,40,200,20,0,0,100);
-   //text_move_left(parnt,"(－＿－）",50,80,300,1,0,0,200);
-   //text_move_left(parnt,"(－＿－）",20,120,250,5,0,0,500);
+   //text_move_l(親キャンバス,描画テキスト,X座標,Y座標,消去フラグ);
+   //text_move_l(parnt,"(・・；)",100,100,false);
+   //text_move_left(親キャンバス,描画テキスト,フォントサイズ,X座標,Y座標,回転角,回転速度,消去フラグ);
+   //text_move_left(parnt,"(－＿－）",10,5,400,10,0,0,100,false);
+   //text_move_left(parnt,"(－＿－）",25,40,200,20,0,0,100,false);
+   //text_move_left(parnt,"(－＿－）",50,80,300,1,0,0,200,false);
+   //text_move_left(parnt,"(－＿－）",20,120,250,5,0,0,500,false);
 
    //キャンバスの定期クリア
+   canvas_clear(親キャンバス,消去インターバル);
    canvas_clear(parnt,100);
 </script>
 <body>
